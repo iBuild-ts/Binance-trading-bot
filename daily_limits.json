@@ -1,0 +1,10 @@
+{
+  "date": "2025-12-03",
+  "trades_count": 0,
+  "daily_pnl": 0.0,
+  "daily_pnl_percent": 0.0,
+  "trades": [],
+  "is_paused": false,
+  "pause_reason": "",
+  "pause_until": null
+}

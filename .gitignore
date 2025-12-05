@@ -1,0 +1,5 @@
+__pycache__
+.github
+venv
+.idea
+./back_testing/price_data/
