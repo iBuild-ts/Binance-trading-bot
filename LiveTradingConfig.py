@@ -3,9 +3,13 @@
 # 10,000 USDT demo account — READY TO PRINT
 # ================================================
 
-# YOUR REAL TESTNET KEYS (already correct)
-API_KEY = 'tY6PJ6sKd1juJvV0ywQrl0bfFswlUd84uOfdDd6TMEfsvaF2F7eiNlAXL8KtDb8z'
-API_SECRET = 'K5hbHYvr55kdmWPxl1Jwi9R9xN97oKp2O6akmLVVTwosG4eAg3HOwzxpsUbADFSY'
+# Load API keys from environment variables (SECURE)
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+API_KEY = os.getenv('BINANCE_API_KEY', '')
+API_SECRET = os.getenv('BINANCE_API_SECRET', '')
 
 # TESTNET MODE = ON (this is what gives you 10,000 fake USDT)
 testnet = True
@@ -27,7 +31,7 @@ TP_mult = 3.0                   # Take Profit = 3× risk
 SL_mult = 1.0                   # Stop Loss = 1× risk
 
 # LEVERAGE & POSITION SIZING (safe but aggressive for testnet)
-leverage = 0                   # 20x leverage on your 10k demo = huge gains
+leverage = 20                   # 20x leverage on your 10k demo = huge gains
 order_size = 10                 # 10 USDT per trade (at 20x = 200 USDT position)
 
 # SYMBOLS

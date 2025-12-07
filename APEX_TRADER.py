@@ -14,6 +14,10 @@ from datetime import datetime
 import logging
 import os
 from urllib3.exceptions import MaxRetryError, NameResolutionError
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # ================== ANTI-DEGEN IMPORTS ==================
 from NewsFilter import should_pause_trading
@@ -21,8 +25,11 @@ from DailyLimits import DailyLimitsManager
 from ProfitManager import manage_open_positions
 
 # ================== CONFIG ==================
-API_KEY = 'tY6PJ6sKd1juJvV0ywQrl0bfFswlUd84uOfdDd6TMEfsvaF2F7eiNlAXL8KtDb8z'
-API_SECRET = 'K5hbHYvr55kdmWPxl1Jwi9R9xN97oKp2O6akmLVVTwosG4eAg3HOwzxpsUbADFSY'
+API_KEY = os.getenv('BINANCE_API_KEY', '')
+API_SECRET = os.getenv('BINANCE_API_SECRET', '')
+
+if not API_KEY or not API_SECRET:
+    raise ValueError("❌ CRITICAL: API keys not found in .env file. Create .env with BINANCE_API_KEY and BINANCE_API_SECRET")
 
 client = Client(api_key=API_KEY, api_secret=API_SECRET, testnet=True)
 
